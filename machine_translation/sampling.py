@@ -43,7 +43,7 @@ def draw_align_map(attend_weights, input_length, sample_length, save_path,
     ax.set_yticks(numpy.arange(data.shape[0]) + 0.5, minor=False)
     ax.set_xticks(numpy.arange(data.shape[1]) + 0.5, minor=False)
 
-    ax.invert_yaxis()
+    # ax.invert_yaxis()
 
     if predict_words:
         xlabels = map(lambda w: w.decode('utf8'), predict_words)
@@ -51,9 +51,9 @@ def draw_align_map(attend_weights, input_length, sample_length, save_path,
         xlabels = ['word_{}'.format(i) for i in range(data.shape[1])]
 
     if input_words:
-        ylabels = map(lambda w: w.decode('utf8'), reversed(input_words))
+        ylabels = map(lambda w: w.decode('utf8'), input_words)
     else:
-        ylabels = ['word_{}'.format(i) for i in reversed(range(data.shape[0]))]
+        ylabels = ['word_{}'.format(i) for i in range(data.shape[0])]
 
     ax.set_xlabel('output sentence')
     ax.set_xticklabels(xlabels, minor=False)
